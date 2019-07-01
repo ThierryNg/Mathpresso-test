@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct Repo: Decodable {
+    let title: String
+    let description: String
+    let imageURL: String
+}

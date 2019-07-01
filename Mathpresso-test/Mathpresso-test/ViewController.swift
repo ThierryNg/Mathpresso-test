@@ -10,11 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    weak var tableView: UITableView! {
+        didSet {
+            tableView.delegate = self
+            tableView.dataSource = self
+        }
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
+
+    }
 }
-
