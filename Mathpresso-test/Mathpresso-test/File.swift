@@ -1,5 +1,5 @@
 //
-//  Repo.swift
+//  File.swift
 //  Mathpresso-test
 //
 //  Created by Thierry Ng on 01/07/2019.
@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import Alamofire
 
-struct Repo: Decodable {
-    let title: String
-    let description: String
-    let imageURL: String
+struct NetworkManager {
+
+    func fetchRepos(completion: ()-> Void) {
+        
+    }
 }
