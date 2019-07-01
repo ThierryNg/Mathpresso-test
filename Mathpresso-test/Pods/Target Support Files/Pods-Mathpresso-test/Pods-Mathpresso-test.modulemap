@@ -1,0 +1,6 @@
+framework module Pods_Mathpresso_test {
+  umbrella header "Pods-Mathpresso-test-umbrella.h"
+
+  export *
+  module * { export * }
+}
