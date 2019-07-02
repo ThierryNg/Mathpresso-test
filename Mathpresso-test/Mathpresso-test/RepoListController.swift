@@ -9,8 +9,6 @@
 import UIKit
 import Alamofire
 
-let endpoint = "https://api.github.com/search/repositories"
-
 class RepoListController: UIViewController {
 
     var networkManager = NetworkManager()

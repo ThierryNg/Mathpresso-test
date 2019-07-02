@@ -9,6 +9,8 @@
 import Foundation
 import Alamofire
 
+let endpoint = "https://api.github.com/search/repositories"
+
 class NetworkManager {
 
     var currentCount = 1
