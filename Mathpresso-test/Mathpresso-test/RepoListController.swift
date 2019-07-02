@@ -9,50 +9,91 @@
 import UIKit
 import Alamofire
 
-let endpoint = "https://api.github.com/search/repositories?q=swift"
+let endpoint = "https://api.github.com/search/repositories"
 
 class RepoListController: UIViewController {
+
+    var networkManager = NetworkManager()
 
     var tableView: UITableView! {
         didSet {
             self.view.addSubview(tableView)
             tableView.frame = self.view.bounds
             tableView.dataSource = self
-            tableView.register(RepoCell.self, forCellReuseIdentifier: "RepoCell")
+            tableView.delegate = self
+            tableView.prefetchDataSource = self
+            tableView.register(RepoCell.self)
+            tableView.allowsSelection = false
+            tableView.estimatedRowHeight = 100
+            tableView.rowHeight = UITableView.automaticDimension
         }
     }
+    var noDataView: UIView = UIView()
 
-    var repositories: [Repo] = [] {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    var repositories: [Repo] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tableView = UITableView()
-        Alamofire.request(endpoint)
-            .responseJSON { response in
-                guard let data = response.data else {
-                    print("error fetching list of repos : ")
-                    print(response.result.error!)
-                    return
-                }
 
-                self.decodeJSON(data)
+        self.noDataView.frame = self.view.bounds
+        self.noDataView.backgroundColor = .white
+        self.view.addSubview(self.noDataView)
+
+        let loadingLabel = UILabel()
+
+        self.noDataView.addSubview(loadingLabel)
+        loadingLabel.textAlignment = .center
+        loadingLabel.translatesAutoresizingMaskIntoConstraints = false
+        loadingLabel.text = "Loading..."
+
+        let labelConstraints = [
+            loadingLabel.centerXAnchor.constraint(equalTo: self.noDataView.centerXAnchor),
+            loadingLabel.centerYAnchor.constraint(equalTo: self.noDataView.centerYAnchor)
+        ]
+
+        NSLayoutConstraint.activate(labelConstraints)
+
+        self.loadListData()
+    }
+
+    private func didLoadInitialBatch() {
+        self.tableView.reloadData()
+
+        let animator = UIViewPropertyAnimator(duration: 0.6, curve: .easeOut)
+
+        animator.addAnimations {
+            self.noDataView.alpha = 0
+        }
+        animator.addCompletion { position in
+            if position == .end {
+                self.noDataView.removeFromSuperview()
+            }
+        }
+        animator.startAnimation()
+    }
+
+    func loadListData() {
+        self.networkManager.fetchRepos { [unowned self] repos, firstPage in
+            DispatchQueue.main.async {
+                self.repositories += repos
+                if firstPage {
+                    self.didLoadInitialBatch()
+                } else {
+                    let indexPathsToReload = self.calculateIndexPathsToReload(from: repos)
+                    let visibleRowsToReload = self.visibleIndexPathsToReload(intersecting: indexPathsToReload)
+
+                    self.tableView.reloadRows(at: visibleRowsToReload, with: .fade)
+                }
+                print("Total of repos : \(self.repositories.count)")
+            }
         }
     }
 
-    func decodeJSON(_ jsonData: Data) {
-        do {
-            let decoder = JSONDecoder()
-            let request = try decoder.decode(RepoRequest.self, from: jsonData)
-
-            self.repositories = request.items
-            print(self.repositories)
-        } catch let error {
-            print(error)
-        }
+    private func calculateIndexPathsToReload(from newRepos: [Repo]) -> [IndexPath] {
+        let startIndex = self.repositories.count - newRepos.count
+        let endIndex = startIndex + newRepos.count
+        return (startIndex ..< endIndex).map { IndexPath(row: $0, section: 0) }
     }
 }

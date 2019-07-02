@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		82EE9CA3F1B68BB8CDB4F692 /* Pods_Mathpresso_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9A09A47A0D475BF781F0A5 /* Pods_Mathpresso_test.framework */; };
+		E41BBBF322CB6A0B0093F861 /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41BBBF122CB6A0B0093F861 /* RepoCell.swift */; };
+		E41BBBF422CB6A0B0093F861 /* RepoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E41BBBF222CB6A0B0093F861 /* RepoCell.xib */; };
+		E41BBBF622CB6A830093F861 /* UITableView+ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41BBBF522CB6A830093F861 /* UITableView+ReusableCell.swift */; };
+		E41BBBF822CB6AA60093F861 /* ReusableCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41BBBF722CB6AA60093F861 /* ReusableCells.swift */; };
 		E49747DC22C9E39E00291AB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49747DB22C9E39E00291AB9 /* AppDelegate.swift */; };
 		E49747DE22C9E39E00291AB9 /* RepoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49747DD22C9E39E00291AB9 /* RepoListController.swift */; };
 		E49747E122C9E39E00291AB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E49747DF22C9E39E00291AB9 /* Main.storyboard */; };
@@ -15,13 +19,19 @@
 		E49747E622C9E39F00291AB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E49747E422C9E39F00291AB9 /* LaunchScreen.storyboard */; };
 		E49747EE22C9E81500291AB9 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49747ED22C9E81500291AB9 /* Repo.swift */; };
 		E49747F122C9F0AC00291AB9 /* RepoListController+UITableViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49747F022C9F0AC00291AB9 /* RepoListController+UITableViewProtocols.swift */; };
-		E49747F322C9F1F600291AB9 /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49747F222C9F1F600291AB9 /* RepoCell.swift */; };
-		E49747F722C9F32600291AB9 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49747F622C9F32600291AB9 /* File.swift */; };
+		E49747F322C9F1F600291AB9 /* RepoCellOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49747F222C9F1F600291AB9 /* RepoCellOld.swift */; };
+		E49747F722C9F32600291AB9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49747F622C9F32600291AB9 /* NetworkManager.swift */; };
+		E49747FC22CAF82600291AB9 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49747FB22CAF82600291AB9 /* UIView+Constraints.swift */; };
+		E49747FE22CB4CA100291AB9 /* RepoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E49747FD22CB4CA100291AB9 /* RepoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6A9A09A47A0D475BF781F0A5 /* Pods_Mathpresso_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mathpresso_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F6C97DAFF1933FDF1CCF9EC /* Pods-Mathpresso-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mathpresso-test.release.xcconfig"; path = "Target Support Files/Pods-Mathpresso-test/Pods-Mathpresso-test.release.xcconfig"; sourceTree = "<group>"; };
+		E41BBBF122CB6A0B0093F861 /* RepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
+		E41BBBF222CB6A0B0093F861 /* RepoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoCell.xib; sourceTree = "<group>"; };
+		E41BBBF522CB6A830093F861 /* UITableView+ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+ReusableCell.swift"; sourceTree = "<group>"; };
+		E41BBBF722CB6AA60093F861 /* ReusableCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCells.swift; sourceTree = "<group>"; };
 		E49747D822C9E39E00291AB9 /* Mathpresso-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mathpresso-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E49747DB22C9E39E00291AB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E49747DD22C9E39E00291AB9 /* RepoListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListController.swift; sourceTree = "<group>"; };
@@ -31,8 +41,10 @@
 		E49747E722C9E39F00291AB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E49747ED22C9E81500291AB9 /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		E49747F022C9F0AC00291AB9 /* RepoListController+UITableViewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepoListController+UITableViewProtocols.swift"; sourceTree = "<group>"; };
-		E49747F222C9F1F600291AB9 /* RepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
-		E49747F622C9F32600291AB9 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		E49747F222C9F1F600291AB9 /* RepoCellOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCellOld.swift; sourceTree = "<group>"; };
+		E49747F622C9F32600291AB9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E49747FB22CAF82600291AB9 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
+		E49747FD22CB4CA100291AB9 /* RepoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoViewModel.swift; sourceTree = "<group>"; };
 		F36A0652AD816071CA8C85EC /* Pods-Mathpresso-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mathpresso-test.debug.xcconfig"; path = "Target Support Files/Pods-Mathpresso-test/Pods-Mathpresso-test.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,6 +69,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E41BBBF922CB6B390093F861 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E49747F222C9F1F600291AB9 /* RepoCellOld.swift */,
+				E41BBBF122CB6A0B0093F861 /* RepoCell.swift */,
+				E41BBBF222CB6A0B0093F861 /* RepoCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		E49747CF22C9E39E00291AB9 = {
 			isa = PBXGroup;
 			children = (
@@ -78,12 +100,14 @@
 		E49747DA22C9E39E00291AB9 /* Mathpresso-test */ = {
 			isa = PBXGroup;
 			children = (
+				E49747F822C9F9CF00291AB9 /* Utils */,
 				E49747EF22C9E94200291AB9 /* Model */,
+				E41BBBF922CB6B390093F861 /* Cells */,
 				E49747DB22C9E39E00291AB9 /* AppDelegate.swift */,
-				E49747F222C9F1F600291AB9 /* RepoCell.swift */,
 				E49747DD22C9E39E00291AB9 /* RepoListController.swift */,
-				E49747F622C9F32600291AB9 /* File.swift */,
+				E49747F622C9F32600291AB9 /* NetworkManager.swift */,
 				E49747F022C9F0AC00291AB9 /* RepoListController+UITableViewProtocols.swift */,
+				E49747FD22CB4CA100291AB9 /* RepoViewModel.swift */,
 				E49747DF22C9E39E00291AB9 /* Main.storyboard */,
 				E49747E222C9E39F00291AB9 /* Assets.xcassets */,
 				E49747E422C9E39F00291AB9 /* LaunchScreen.storyboard */,
@@ -98,6 +122,16 @@
 				E49747ED22C9E81500291AB9 /* Repo.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E49747F822C9F9CF00291AB9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E49747FB22CAF82600291AB9 /* UIView+Constraints.swift */,
+				E41BBBF522CB6A830093F861 /* UITableView+ReusableCell.swift */,
+				E41BBBF722CB6AA60093F861 /* ReusableCells.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		F67CBCE8E9EEB70CDF81949D /* Frameworks */ = {
@@ -171,6 +205,7 @@
 				E49747E622C9E39F00291AB9 /* LaunchScreen.storyboard in Resources */,
 				E49747E322C9E39F00291AB9 /* Assets.xcassets in Resources */,
 				E49747E122C9E39E00291AB9 /* Main.storyboard in Resources */,
+				E41BBBF422CB6A0B0093F861 /* RepoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,12 +222,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mathpresso-test/Pods-Mathpresso-test-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -228,11 +265,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E49747F322C9F1F600291AB9 /* RepoCell.swift in Sources */,
-				E49747F722C9F32600291AB9 /* File.swift in Sources */,
+				E49747FE22CB4CA100291AB9 /* RepoViewModel.swift in Sources */,
+				E49747F322C9F1F600291AB9 /* RepoCellOld.swift in Sources */,
+				E49747F722C9F32600291AB9 /* NetworkManager.swift in Sources */,
 				E49747EE22C9E81500291AB9 /* Repo.swift in Sources */,
+				E41BBBF622CB6A830093F861 /* UITableView+ReusableCell.swift in Sources */,
+				E49747FC22CAF82600291AB9 /* UIView+Constraints.swift in Sources */,
+				E41BBBF322CB6A0B0093F861 /* RepoCell.swift in Sources */,
 				E49747F122C9F0AC00291AB9 /* RepoListController+UITableViewProtocols.swift in Sources */,
 				E49747DE22C9E39E00291AB9 /* RepoListController.swift in Sources */,
+				E41BBBF822CB6AA60093F861 /* ReusableCells.swift in Sources */,
 				E49747DC22C9E39E00291AB9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

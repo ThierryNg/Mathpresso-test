@@ -6,4 +6,5 @@ target 'Mathpresso-test' do
 
   # Pods for Mathpresso-test
   pod 'Alamofire', '4.8.2'
+  pod 'SDWebImage', '~> 5.0'
 end
